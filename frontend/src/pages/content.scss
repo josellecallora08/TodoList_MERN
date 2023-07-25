@@ -1,0 +1,295 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 90vh;
+    width: 80%;
+    margin: 0 auto;
+
+   .container{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    width: 60%;
+    margin: 0 auto;
+    height: 10%;
+    
+        .input-field{
+           
+            max-height: 50px;
+            height: 100%;
+            width: calc(100%/3);
+
+            input{
+                padding: 0 0 0 10px;
+                height: 100%;
+                width: 100%;
+                outline: none;
+            }
+            .error{
+                border: 1px solid red;
+                border-radius: 5px;
+            }
+            button{
+                width: 100%;
+                height: 100%;
+            }
+        }
+   }
+   .overflow{
+    overflow-y:scroll;
+
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+
+   .table-wrapper{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    margin: 0 auto;
+    max-height: 500px;
+    height: 100%;
+
+    table{
+        table-layout: fixed;
+        border-spacing: 0;
+        width: 100%;
+        height: fit-content;
+        position: relative;
+        border-radius: 10px;
+        background-color: rgb(207, 206, 206);
+        box-shadow: 2px 3px 20px rgb(242, 228, 228);
+
+        thead{
+            width: calc(100%/3);
+            position: sticky;
+            background-color: rgb(114, 114, 114);
+            top: 0;
+            border-radius: 10px;
+
+            tr{
+                text-align: center;                
+                th{
+                    padding: 10px;
+                }
+            }
+        }
+        tbody{
+            height: auto;
+            tr:nth-child(odd){
+                text-align: center;
+                background-color: rgb(255, 255, 255);
+            }
+            tr{
+                text-align: center;
+                td{
+                    padding: 10px;
+                    overflow: hidden;
+                }
+                td:last-child{
+                    display: flex;
+                    gap: 5px;
+                    justify-content: center;
+                    align-items: center;
+                    button{
+                        all: unset;
+                        cursor: pointer;
+                        gap: 10px;
+                        border: 1px solid transparent;
+
+                        &:hover{
+                            border-color: rgb(210, 204, 204);
+                        }
+                        .fa-edit{
+                            color: rgb(14, 124, 14);
+                        }
+                        .fa-remove{
+                            color: rgb(248, 35, 35);
+                        }
+                    }
+                }
+            }
+        }
+    }
+   }
+}
+
+.loading{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+    border: 3px dotted;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    animation: loading infinite 2s;
+
+    @keyframes loading {
+        0%{
+            border-left-color: yellow;
+        }
+        25% {
+            border-top-color: red;
+        }
+        50%{
+            border-right-color: blue;
+        }
+        75%{
+            border-bottom-color: green;
+        }
+        100%{
+            border-color: gray;
+        }
+
+    }
+}
+
+// editmodal component
+#edit-main{
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    .edit-container{
+        border: 1px solid gray;
+        max-width: 500px;
+        width: 100%;
+        max-height: 300px;
+        height: 100%;
+        border-radius: 5px;
+        box-shadow: 5px 10px 15px rgb(135, 135, 135);
+
+        .edit-wrapper{
+            background-color: white;
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+
+            .title{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px;
+                border-bottom: 2px solid;
+                background-color: gray;
+                height: 15%;
+                button{
+                    all: unset;
+                    cursor: pointer;
+
+                    &:hover{
+                        color: rgb(198, 49, 49);
+                    }
+                }
+                .fa-xmark{
+                    font-size: 20px;
+                }
+            }
+            .edit-content{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 20px;
+                height: 85%;
+                width: 100%;
+
+                .input-field{
+                    max-width: 200px;
+                    width: 100%;
+                    max-height: 40px;
+                    height: 100%;
+                    input{
+                        padding: 0 0 0 10px;
+                        width: 100%;
+                        height: 100%;
+                        outline: none;
+
+                        &.error{
+                            border: 1px solid red;
+                            border-radius: 5px;
+                        }
+                    }
+                    button{
+                        all: unset;
+                        cursor: pointer;
+                        text-align: center;
+                        border: .5px solid rgb(67, 67, 169);
+                        width: 100%;
+                        height: 100%;
+                        transition: 300ms ease-in-out;
+
+                        &:hover{
+                            border-radius: 10px;
+                            background-color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .content{
+        justify-content: space-evenly;
+        .container{
+            flex-wrap: wrap;
+            width: 100%;
+            .input-field{
+                width: 100%;
+                max-height: 30px;
+                height: 100%;
+                
+            }
+        }
+        .table-wrapper{
+            width: 100%;
+
+            table{
+                
+                thead{
+                    tr{
+                        th{
+                            font-size: .8rem;
+                        }
+                    }
+                }
+                tbody{
+                    tr{
+                        td{
+                            font-size: .7rem;
+                        }
+                        td:last-child{
+                            button{
+                                
+                                span{
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

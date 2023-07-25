@@ -1,0 +1,124 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(209, 203, 203);
+}
+
+.login-container,.container{
+    height: 80vh;
+    width: 80vw;
+    margin: 0 auto;
+
+    .wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        .form-wrapper{
+            background-color: rgb(243, 234, 234);
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 500px;
+            max-height: 300px;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            box-shadow: 2px 3px 15px rgb(229, 227, 227);
+
+            .link{
+                max-height: 10px;
+                height: 100%;
+            }
+            .errortext{
+                border: 2px solid rgb(199, 176, 176);
+                display: flex;
+                border-radius: 5px;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                color: red;
+                max-width: 250px;
+                width: 100%;
+                max-height: 35px;
+                height: 100%;
+                font-size: .8em;
+            }
+            .input-field{
+                max-width: 250px;
+                width: 100%;
+                max-height: 35px;
+                height: 100%;
+                position: relative;
+                input{
+                    height: 100%;
+                    width: 100%;
+                    outline: none;
+                    padding-left: 30px;
+
+                    &.error{
+                        border: 1px solid red;
+                        border-radius: 5px;
+                    }
+                    
+                    &:focus ~ label{
+                        top: 2px;
+                        font-size: .7em;
+                        font-weight: 600;
+                    }
+                    &:not(:placeholder-shown) ~ label{
+                        display: none;
+                    }
+                }
+                h1{
+                    text-align: center;
+                    font-size: 2em;
+                }
+                label{
+                    transition: 150ms ease-in-out;
+                    cursor:text;
+                    position: absolute;
+                    left: 30px;
+                    top:8px;
+                }
+                span{
+                    position: absolute;
+                    left: 10px;
+                    top: 10px;
+                }
+                .btn{
+                    all: unset;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: 1px solid;
+                    max-width: 250px;
+                    width: 100%;
+                    height: 100%;
+                    text-align: center;
+                    text-decoration: none;
+                    color: black;
+
+                    &:hover{
+                        background-color: rgb(172, 167, 167);
+                        border-color: transparent;
+                    }
+                    
+                   
+                }
+                a{
+                    font-size: .9em;
+                }
+              
+            }
+        }
+    }
+}
