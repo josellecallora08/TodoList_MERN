@@ -9,12 +9,7 @@ require('dotenv').config();
 
 
 // middleware
-app.use(cors({
-    origin: ['https://todo-list-mern-sigma.vercel.app'],
-    methods: ['GET, POST, PUT, DELETE'],
-    credentials: true
-}));
-
+app.use(cors());
 app.use(express.json());
 // Connection to MongoDB
 mongoose.connect(process.env.MONGO_URI)
@@ -26,7 +21,6 @@ mongoose.connect(process.env.MONGO_URI)
 .catch((error) => {
     console.error("Error connecting to DB:", error)
 })
-app.use(express.static('build'))
 app.use("/api/task", TaskRoutes);
 app.use("/api/user", UserRoutes)
 
