@@ -1,2 +1,2 @@
-export const baseURL  = "https://mern-todo-list-backend.vercel.app/api/task"
-export const userbaseURL = "https://mern-todo-list-backend.vercel.app/api/user"
+export const baseURL  = "https://todo-list-mern-api.vercel.app/api/task"
+export const userbaseURL = "https://todo-list-mern-api.vercel.app/api/user"
