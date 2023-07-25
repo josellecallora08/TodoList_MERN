@@ -6,15 +6,11 @@ const cors = require('micro-cors');
 const mongoose = require('mongoose')
 require('dotenv').config();
 
-const corsOptions = {
-    origin: 'https://todo-list-mern-api.vercel.app',
-    methods: 'GET, POST, PUT, DELETE',
-    allowedHeaders: 'Content-Type, Authorization',
-  };
+
 
 // middleware
 app.use(express.json());
-app.use(cors(corsOptions))
+app.use(cors())
 
 app.use("/api/task", TaskRoutes);
 app.use("/api/user", UserRoutes)
