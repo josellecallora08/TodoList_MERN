@@ -10,8 +10,8 @@ require('dotenv').config();
 
 // middleware
 app.use(cors({
-    origin: ['https://todo-list-mern-sigma.vercel.app'],
-    methods: ['GET, POST, PUT, DELETE'],
+    origin: ['https://todo-list-mern-sigma.vercel.app/login'],
+    methods: ['GET, POST, PUT, DELETE, PATCH, OPTIONS'],
     credentials: true
 }));
 app.use(express.json());
