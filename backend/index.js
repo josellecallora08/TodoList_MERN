@@ -7,20 +7,14 @@ const mongoose = require('mongoose')
 require('dotenv').config();
 
 
-const corsOptions = {
-    origin: 'https://todo-list-mern-sigma.vercel.app',
-    methods: 'GET, POST, PUT, DELETE',
-    allowedHeaders: 'Content-Type, Authorization',
-    credentials: true
-  };
+
 // middleware
+app.use(cors({
+    origin: ['https://todo-list-mern-sigma.vercel.app'],
+    methods: ['GET, POST, PUT, DELETE'],
+    credentials: true
+}));
 app.use(express.json());
-app.use(cors(corsOptions));
-
-app.use("/api/task", TaskRoutes);
-app.use("/api/user", UserRoutes)
-
-
 // Connection to MongoDB
 mongoose.connect(process.env.MONGO_URI)
 .then(()=> {
@@ -31,5 +25,10 @@ mongoose.connect(process.env.MONGO_URI)
 .catch((error) => {
     console.error("Error connecting to DB:", error)
 })
+
+app.use("/api/task", TaskRoutes);
+app.use("/api/user", UserRoutes)
+
+
 
 module.exports = app
