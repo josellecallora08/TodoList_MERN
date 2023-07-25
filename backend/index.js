@@ -7,18 +7,16 @@ const mongoose = require('mongoose')
 require('dotenv').config();
 
 
-
+const corsOptions = {
+    origin: 'https://todo-list-mern-sigma.vercel.app',
+    methods: 'GET, POST, PUT, DELETE',
+    allowedHeaders: 'Content-Type, Authorization',
+    credentials: true
+  };
 // middleware
 app.use(express.json());
-app.use(cors());
-app.use((req,res,next)=>{
-    res.header('Access-Control-Allow-Headers, *, Access-Control-Allow-Origin', 'Origin, X-Requested-with, Content_Type,Accept,Authorization','http://localhost:4200');
-    if(req.method === 'OPTIONS') {
-        res.header('Access-Control-Allow-Methods','PUT,POST,PATCH,DELETE,GET');
-        return res.status(200).json({});
-    }
-    next();
-});
+app.use(cors(corsOptions));
+
 app.use("/api/task", TaskRoutes);
 app.use("/api/user", UserRoutes)
 
