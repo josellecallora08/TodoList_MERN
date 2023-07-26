@@ -144,6 +144,7 @@ const _content = () => {
         }
         await axios.patch(`${baseURL}/${id}`,{
             Status: true,
+        },{
             headers: {
                 'Authorization' : `Bearer ${users.token}`
             }
