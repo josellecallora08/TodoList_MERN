@@ -22,6 +22,7 @@ const Navbar = () => {
   }
   
   const handleLogout = () => {
+    setMobileNav(false)
     setIsLoading(true);
 
     // Simulate the logout process (replace this with your actual logout logic)
