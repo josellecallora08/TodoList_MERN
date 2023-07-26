@@ -8,6 +8,7 @@
     width: 100%;
     background-color: white;
     box-shadow: 2px 5px 3px rgb(190, 186, 186);
+
     .Navbar-wrapper{
         width: 80%;
         margin: 0 auto;
@@ -69,10 +70,19 @@
 @media screen and (max-width:768px) {
     .Navbar-container{
         position: relative;
+        
+        &.hidden{
+            animation: overflow 1 2s;
+
+            @keyframes overflow {
+                50%{
+                    overflow: hidden;
+                }
+            }
+        }
         .Navbar-wrapper{
             height: 100%;
             width: 100%;
-
             header{
                 width: 80%;
                 margin: 0 auto;
@@ -89,23 +99,27 @@
                 }
             }
             nav{
+                opacity: 0;
                 position: absolute;
                 width: 100%;
-                height: fit-content;
+                height: 100vh;
                 background-color: rgb(208, 202, 202);
                 top: 100%;
+                left: 100%;
+                z-index: 999;
                 transition: 300ms ease-in-out;
-                transform: translateX(100%);
                 ul{
-                    display: flex;
                     flex-direction: column;
                     align-items: center;
                     padding: 20px 0;
                     gap: 30px;
                 }
                 &.active-nav{
-                    transform: translateX(0);
+                    opacity: 1;
+                    left: 0;
                 }
+                
+
             }
         }
     }
