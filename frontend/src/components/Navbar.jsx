@@ -48,9 +48,7 @@ const Navbar = () => {
           <button onClick={handleMenu}>      
             {mobileNav ? <i className="fa-solid fa-xmark fa-2x"></i> : <i className="fa-solid fa-bars fa-2x"></i>}
           </button>
-        </header>
-
-        <nav className={mobileNav ? "active-nav" : ""}>
+          <nav className={mobileNav ? "active-nav" : ""}>
           <ul>
             {users ? <h3>Welcome, {users.Name.includes(' ') ? users.Name.split(' ')[0] : users.Name}!</h3> : ''}
             <li>
@@ -69,6 +67,7 @@ const Navbar = () => {
             </li>}
           </ul>
         </nav>
+        </header>
       </div>
     </div>
   )
