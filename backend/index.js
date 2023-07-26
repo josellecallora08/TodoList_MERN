@@ -21,6 +21,7 @@ mongoose.connect(process.env.MONGO_URI)
 .catch((error) => {
     console.error("Error connecting to DB:", error)
 })
+app.use(express.static('build'))
 app.use("/api/task", TaskRoutes);
 app.use("/api/user", UserRoutes)
 
